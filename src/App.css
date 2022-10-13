@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+.cardFront,
+.cardBack {
+	max-width: 25rem;
+	height: 12rem;
+	border-radius: 10px;
+	background-size: cover;
+	color: var(--White);
+	position: relative;
+	padding: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Front card styling*/
+.cardFront {
+	background-image: url("assets/bg-card-front.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin: 0 auto 32px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cardFront div {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	word-spacing: 6px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cardFront>span {
+	/* clamp -  a minimum value, a preferred value, and a maximum allowed value. */
+	font-size: clamp(22px, 2.5vw, 27px); 
+	letter-spacing: 3px;
+	margin-bottom: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+.cardFront div span {
+	font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardFront div span:first-child {
+	text-transform: uppercase;
+}
+
+
+/* Back card styling*/
+.cardBack {
+	background-image: url("assets/bg-card-back.png");
+	background-size: contain;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	margin: 0 2rem 0 auto;
+}
+
+.cardBack span {
+	position: absolute;
+	right: 44px;
+	top: 111px;
+	font-size: 24px;
+}
+
+.cardFront::after {
+	content: url("assets/card-logo.svg");
+	position: absolute;
+	top: 27px;
+	left: 27px;
+}
+
+
+.cardDetail {
+	width: 54%;
+	padding: 2rem;
+	margin-top: 3.4rem;
+}
+
+.cardOverflow {
+	width: 46%;
+	overflow: hidden;
+}
+
+.cardOverflow>div {
+	transition: transform 0.35s ease-in-out;
+}
+
+.btn-primary {
+	background: var(--Verydarviolet);
+	border: none;
+	padding: 15px 20px;
+	color: var(--White);
+	cursor: pointer;
+	border-radius: 6px;
+	font-size: 18px;
+}
+
+.btn-primary:hover {
+	opacity: .9;
+}
+
+.card-input {
+	padding: 13px;
+	border: 1px solid var(--Darkgrayisviolet);
+	border-radius: 7px;
+}
+
+.card-input::placeholder {
+	opacity: .7;
+}
+
+@media screen and (max-width: 585px) {
+
+	.cardFront,
+	.cardBack {
+		transform: scale(.8) !important;
+	}
+
+	.cardFront {
+		top: 7.8rem !important;
+		right: 0 !important;
+	}
+
+	.cardBack {
+		right: 0!important;
+	}
+
+}
+
+@media screen and (max-width: 750px) {
+	.cardDetail {
+		width: 100%;
+		margin-top: 0.1rem;
+	}
+
+	.cardFront,
+	.cardBack {
+		margin: 1rem auto;
+	}
+
+	.cardFront {
+		margin-top: 0.01rem;
+		margin-right: 1.4rem;
+		position: absolute;
+		height: 10rem;
+		width: 85%;
+		z-index: 10;
+	}
+
+	.cardBack span {
+		right: 44px;
+		top: 95px;
+		font-size: 24px;
+	}
+	
+	.cardBack {
+		position: absolute;
+		height: 10rem;
+		top: 1.4rem;
+		left: 0.6rem;
+		width: 85%;
+	}
+
+	.cardDetailForm,
+	.cardThanks {
+		width: 90%;
+	}
+
+	.cardOverflow {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1400px) {
+
+	.cardFront,
+	.cardBack {
+		transform: scale(.85);
+	}
+
+}
+
+@media screen and (max-width: 1010px) {
+	.cardBack {
+		margin: 0 auto;
+	}
 }
